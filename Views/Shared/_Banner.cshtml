@@ -1,0 +1,26 @@
+@{
+    var actionName = ViewContext.RouteData.Values["Action"]!.ToString();
+}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area" style='background: url(@Url.Content("~/uploads/images/banner.jpg")) no-repeat scroll center center;'>
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content">
+                <h2>@(ViewData["Subtitle"]==null? ViewData["Title"]:"")</h2>
+                <div class="page_link" style="margin-left: 30px;">
+                    <a href="/">Ana Sayfa</a>
+                    @if (ViewData["Subtitle"]==null)
+                    {
+                        <a>@ViewData["Title"]</a>
+                    }else{
+                        <a href='@(actionName=="BlogDetail"?"/blog":actionName=="EventDetail"?"/event":actionName=="CourceDetail"?"/cource":"")'>@ViewData["Title"]</a>
+                         <a>@ViewData["Subtitle"]</a>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
