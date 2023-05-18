@@ -20,8 +20,8 @@ public class HomeController : Controller
     {
         var model = new IndexViewModel()
         {
-            Abouts = db.Abouts.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
-            Slides = db.Slides.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            Abouts = db.Abouts!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            Slides = db.Slides!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
             Site = db.Sites!.First()
         };
         return View(model);
