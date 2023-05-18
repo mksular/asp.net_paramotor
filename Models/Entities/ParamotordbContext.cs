@@ -15,16 +15,16 @@ public partial class ParamotordbContext : DbContext
     {
     }
 
-    public virtual DbSet<About> Abouts { get; set; }
+    public virtual DbSet<About>? Abouts { get; set; }
 
-    public virtual DbSet<Site> Sites { get; set; }
+    public virtual DbSet<Site>? Sites { get; set; }
 
-    public virtual DbSet<Slide> Slides { get; set; }
+    public virtual DbSet<Slide>? Slides { get; set; }
 
-    public virtual DbSet<Team> Teams { get; set; }
+    public virtual DbSet<Team>? Teams { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=paramotordb;user=root;default command timeout=120;sslmode=none", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.36-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
