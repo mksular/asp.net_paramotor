@@ -1,0 +1,52 @@
+@model Paramotor.Models.IndexViewModel
+@{
+	int i = 0;
+}
+
+<section class="mission_area">
+	@if (Model.Abouts != null)
+	{
+		foreach (var item in Model.Abouts)
+		{
+
+			<div class="row m0">
+
+				@if (i % 2 != 0)
+				{
+					<div class="col-lg-6 p0">
+						<div class="item">
+							<div class="mission_text">
+								<h4>@item.Title</h4>
+								<p>@item.Detail</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 p0">
+						<div class="left_img"><img src="~/uploads/images/@item.Image" alt=""></div>
+					</div>
+				}
+				else
+				{					
+					<div class="col-lg-6 p0">
+						<div class="left_img"><img src="~/uploads/images/@item.Image" alt=""></div>
+					</div>
+					<div class="col-lg-6 p0">
+
+						<div class="item">
+							<div class="mission_text">
+								<h4>@item.Title</h4>
+								<p>@item.Detail</p>
+							</div>
+						</div>
+					</div>
+				}
+
+
+			</div>
+			i++;
+		}
+	}
+
+
+
+</section>

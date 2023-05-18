@@ -15,14 +15,16 @@ public partial class ParamotordbContext : DbContext
     {
     }
 
-    public virtual DbSet<About>? Abouts { get; set; }
+    public virtual DbSet<About> Abouts { get; set; }
 
-    public virtual DbSet<Site>? Sites { get; set; }
+    public virtual DbSet<Site> Sites { get; set; }
 
-    public virtual DbSet<Slide>? Slides { get; set; }
+    public virtual DbSet<Slide> Slides { get; set; }
+
+    public virtual DbSet<Team> Teams { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySql("server=localhost;port=3306;database=paramotordb;user=root;default command timeout=120;sslmode=none", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.36-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -126,6 +128,45 @@ public partial class ParamotordbContext : DbContext
             entity.Property(e => e.Urltext)
                 .HasMaxLength(250)
                 .HasColumnName("urltext");
+        });
+
+        modelBuilder.Entity<Team>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("team");
+
+            entity.Property(e => e.Id)
+                .HasColumnType("int(11)")
+                .HasColumnName("id");
+            entity.Property(e => e.Facebook)
+                .HasMaxLength(250)
+                .HasColumnName("facebook");
+            entity.Property(e => e.Image)
+                .HasMaxLength(250)
+                .HasColumnName("image");
+            entity.Property(e => e.Instagram)
+                .HasMaxLength(250)
+                .HasColumnName("instagram");
+            entity.Property(e => e.Isview).HasColumnName("isview");
+            entity.Property(e => e.Linkedin)
+                .HasMaxLength(250)
+                .HasColumnName("linkedin");
+            entity.Property(e => e.Order)
+                .HasColumnType("int(11)")
+                .HasColumnName("order");
+            entity.Property(e => e.Subtitle)
+                .HasMaxLength(250)
+                .HasColumnName("subtitle");
+            entity.Property(e => e.Title)
+                .HasMaxLength(250)
+                .HasColumnName("title");
+            entity.Property(e => e.Twitter)
+                .HasMaxLength(250)
+                .HasColumnName("twitter");
+            entity.Property(e => e.Youtube)
+                .HasMaxLength(250)
+                .HasColumnName("youtube");
         });
 
         OnModelCreatingPartial(modelBuilder);

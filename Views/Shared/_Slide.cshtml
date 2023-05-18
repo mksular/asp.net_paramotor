@@ -1,26 +1,29 @@
 @model Paramotor.Models.IndexViewModel
 
 <section class="home_banner_area">
-		<div class="swiper-container">			
-			<div class="swiper-wrapper">
-			@foreach (var item in Model.Slides!)
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			@if (Model.Slides! != null)
 			{
-				<div class="swiper-slide"><img src="~/uploads/images/@item.Image" alt="">
-					<div class="slider_text_inner">
-						<div class="container">
-							<div class="row">
-								<div class="col-lg-7">
-									<div class="slider_text">
-										<h2>@item.Title</h2>
-										<p>@item.Subtitle</p>
-										<a class="banner_btn" href="@item.Url" target="@item.Urltarget">@item.Urltext</a>									
+				foreach (var item in Model.Slides!)
+				{
+					<div class="swiper-slide"><img src="~/uploads/images/@item.Image" alt="">
+						<div class="slider_text_inner">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-7">
+										<div class="slider_text">
+											<h2>@item.Title</h2>
+											<p>@item.Subtitle</p>
+											<a class="banner_btn" href="@item.Url" target="@item.Urltarget">@item.Urltext</a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			}	
-			</div>
+				}
+			}
 		</div>
-	</section>
+	</div>
+</section>

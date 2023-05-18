@@ -20,9 +20,10 @@ public class HomeController : Controller
     {
         var model = new IndexViewModel()
         {
-            Abouts = db.Abouts!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            About = db.Abouts!.OrderBy(x => x.Order).FirstOrDefault(x => x.Isview == true),
+            Teams = db.Teams!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
             Slides = db.Slides!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
-            Site = db.Sites!.First()
+            Site = db.Sites!.FirstOrDefault()
         };
         return View(model);
     }
@@ -32,6 +33,8 @@ public class HomeController : Controller
     {
         var model = new IndexViewModel()
         {
+            Teams = db.Teams!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
+            Abouts = db.Abouts!.OrderBy(x => x.Order).Where(x => x.Isview == true).ToList(),
             Site = db.Sites!.First()
         };
         return View(model);
