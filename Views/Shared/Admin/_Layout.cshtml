@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+@{
+    await Html.RenderPartialAsync("/Admin/_Head");
+}
+
+<body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                @{
+                    await Html.RenderPartialAsync("/Admin/_Header");
+                }
+
+                @RenderBody()
+                @{
+                    await Html.RenderPartialAsync("/Admin/_Copyright");
+                }
+
+            </div>
+        </div>
+
+        @{
+            await Html.RenderPartialAsync("/Admin/_SidebarMenu");
+        }
+        @{
+            await Html.RenderPartialAsync("/Admin/_Scripts");
+        }
+
+
+</body>
+
+</html>

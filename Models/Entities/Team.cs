@@ -24,5 +24,6 @@ public partial class Team
     public string? Linkedin { get; set; }
 
     public bool? Isview { get; set; }
+
     public int? Order { get; set; }
 }

@@ -1,0 +1,27 @@
+@{
+    Layout = "~/Views/Shared/Admin/_Layout.cshtml";
+}
+
+<!--inner block start here-->
+<div class="inner-block">
+
+    @{
+        await Html.RenderPartialAsync("/Admin/_MarketUpdates");
+    }
+    @{
+        await Html.RenderPartialAsync("/Admin/_ChitChatting");
+    }
+    @{
+        await Html.RenderPartialAsync("/Admin/_Chart");
+    }
+
+    @{
+        await Html.RenderPartialAsync("/Admin/_Chart2");
+    }
+    @{
+        await Html.RenderPartialAsync("/Admin/_Climate");
+    }
+
+
+</div>
+<!--inner block end here-->

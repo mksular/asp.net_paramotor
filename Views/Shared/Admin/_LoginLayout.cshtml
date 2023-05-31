@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+
+@{
+    await Html.PartialAsync("Admin/_Head");
+}
+
+<body>
+    @RenderBody()
+
+    @{
+        await Html.PartialAsync("_Copyright");
+    }
+    @{
+        await Html.PartialAsync("_Scripts");
+    }
+
+
+</body>
+
+</html>
